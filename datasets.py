@@ -32,7 +32,8 @@ class Incomplete_MultiviewDataset(Dataset):
         mask = [torch.tensor(self.mask_list[v][index], dtype=torch.float32, requires_grad=False) for v in range(self.num_views)]
         return data, mask
 
-
+# 模拟多视图数据中的缺失情况
+# 生成的掩码矩阵可以用于后续的数据处理或模型训练中，以处理数据的不完整性
 def get_mask(num_views, data_size, missing_rate):
     assert num_views >= 2
     miss_sample_num = math.floor(data_size * missing_rate)
@@ -84,8 +85,25 @@ def build_dataset(args):
 
     if args.dataset_name == 'Caltech7-5V':
         data_list = [pixel_normalize(dv) for dv in data_list]
+    elif args.dataset_name == 'caltech7':
+        data_list = [pixel_normalize(dv) for dv in data_list]
     elif args.dataset_name == 'Scene-15':
         data_list = [StandardScaler().fit_transform(dv) for dv in data_list]
+    elif args.dataset_name == 'LandUse-21':
+        data_list = [StandardScaler().fit_transform(dv) for dv in data_list]
+    elif args.dataset_name == 'HandWritten':
+        data_list = [StandardScaler().fit_transform(dv) for dv in data_list]
+    elif args.dataset_name == 'UCI_Digits':
+        data_list = [StandardScaler().fit_transform(dv) for dv in data_list]
+    elif args.dataset_name == 'Caltech101-20':
+        data_list = [pixel_normalize(dv) for dv in data_list]
+    elif args.dataset_name == 'caltech101':
+        data_list = [StandardScaler().fit_transform(dv) for dv in data_list]
+    # Multi-Fashion与NoisyMNIST是灰度图像数据集
+    # 图像数据集不做处理 或者  做z-score标准化
+    # elif args.dataset_name == 'NoisyMNIST':
+    # # 对每个视图进行z-score标准化
+    # data_list = [StandardScaler().fit_transform(dv) for dv in data_list]
     else:
         pass
 
