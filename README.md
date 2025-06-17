@@ -43,7 +43,7 @@ DCIMVC（具有面向聚类引导的双重对比不完全多视图聚类方法�
 
 2. 簇级对比学习
 
-![簇级](png/clu.png)
+![簇级](png/Clu.png)
 
 - 关键代码片段
 ```python
