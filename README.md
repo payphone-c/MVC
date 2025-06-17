@@ -1,8 +1,5 @@
 ## Dual Contrastive Incomplete Multi-View Clustering with Clustering-Oriented Guidance
 
-Simple implementation of our paper DCIMVC.
-The details can be found in [our NN paper](https://www.sciencedirect.com/science/article/pii/S089360802100397X?via%3Dihub).
-
 ### Q1. 为什么开展此软件项目？解决的实际问题是什么？
 - 实际背景与核心问题
 
